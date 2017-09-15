@@ -204,27 +204,47 @@ $(document).ready(function() {
 		google.maps.event.addDomListener(window, 'load', initialize);
 	}
 	
-	if($('.sliderWrapper').length){
-		$('.sliderWrapper').each(function(index, element) {
-			if($(element).find('li').length > 1){
-				$(element).cycle({
-					speed: 1000,
-					easing: 'easeInOutCubic',
-					fx: 'scrollHorz',
-					next: '> .next',
-					prev: '> .prev',
-					swipe: true,
-					pauseOnHover: false,
-					slides: '> li',
-					timeout: 5000,
-					paused: true,
-					pager: '> .pagination',
-					pagerActiveClass: 'active',
-					autoHeight: 'calc'
-				});
-			}else{
-				$(element).find('a.prev, a.next, aside.pagination').remove();	
-			}
+	if($("#denonHome").length){
+		$("#denonHome").owlCarousel({
+			items:1,
+			loop:true,
+			touchDrag:true,
+			nav:true,
+			dots:true,
+			navText: ["<span class='icon-wrap'></span>","<span class='icon-wrap'></span>"],
+			autoplay:false,
+			autoplayTimeout:6000,
+			animateOut:'fadeOut',			
+		});
+		$('#bnrBlank').hide(0);
+	}
+	if($(".itemSlider").length){
+		$(".itemSlider").owlCarousel({
+			items:4,
+			margin:10,
+			loop:true,
+			touchDrag:true,
+			nav:true,
+			dots:true,
+			navText: ["<span class='icon-wrap'></span>","<span class='icon-wrap'></span>"],
+			autoplay:true,
+			autoplayTimeout:6000,
+			responsiveClass:true,
+			responsive:{
+				0:{
+					items:1,
+					loop:false
+				},
+				768:{
+					items:2,
+				},
+				992:{
+					items:3,
+				},
+				1400:{
+					items:4,
+				}
+			}			
 		});
 	}
 
