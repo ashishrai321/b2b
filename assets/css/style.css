@@ -511,33 +511,6 @@ img {
   max-width: 100%;
 }
 /* Import Fonts */
-@font-face {
-  font-family: 'museo_sans300';
-  src: url('../fonts/MeseoSans/MuseoSans_300-webfont.eot');
-  src: url('../fonts/MeseoSans/MuseoSans_300-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/MeseoSans/MuseoSans_300-webfont.woff') format('woff'), url('../fonts/MeseoSans/MuseoSans_300-webfont.ttf') format('truetype'), url('../fonts/MeseoSans/MuseoSans_300-webfont.svg#museo_sans300') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'museo_sans500';
-  src: url('../fonts/MeseoSans/MuseoSans_500-webfont.eot');
-  src: url('../fonts/MeseoSans/MuseoSans_500-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/MeseoSans/MuseoSans_500-webfont.woff') format('woff'), url('../fonts/MeseoSans/MuseoSans_500-webfont.ttf') format('truetype'), url('../fonts/MeseoSans/MuseoSans_500-webfont.svg#museo_sans500') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Museo_sans700';
-  src: url('../fonts/MeseoSans/MuseoSans_700-webfont.woff') format('woff'), url('../fonts/MeseoSans/MuseoSans_700-webfont.ttf') format('truetype'), url('../fonts/MeseoSans/MuseoSans_700-webfont.svg#MuseoSans-700') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'museo_sans900';
-  src: url('../fonts/MeseoSans/MuseoSans_900-webfont.eot');
-  src: url('../fonts/MeseoSans/MuseoSans_900-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/MeseoSans/MuseoSans_900-webfont.woff') format('woff'), url('../fonts/MeseoSans/MuseoSans_900-webfont.ttf') format('truetype'), url('../fonts/MeseoSans/MuseoSans_900-webfont.svg#museo_sans900') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
 .ff_L,
 .form fieldset label,
 .form input[type="text"],
@@ -547,18 +520,18 @@ img {
 .form select,
 .form textarea,
 .form .cntl .format {
-  font-family: 'museo_sans300', Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .ff_R,
 body,
 .table th {
-  font-family: 'museo_sans500', Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .ff_SB {
-  font-family: 'Museo_sans700', Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .ff_B {
-  font-family: 'museo_sans900', Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 /* Generating Columns */
 .col {
@@ -2036,25 +2009,50 @@ header {
   position: relative;
   background-color: #000000;
   z-index: 5;
-  padding: 10px 0;
+  padding: 20px 0;
+  box-shadow: 0 0 1px #fff;
+  height: 102px;
 }
 header .logo {
   float: left;
+  max-width: 200px;
+}
+header .logo img {
+  max-width: 100%;
 }
 header > .container {
   position: relative;
+}
+header aside.call {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  line-height: 30px;
+  padding: 0 15px;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+header aside.call:after {
+  width: 0;
+  height: 0;
+  border-top: 30px solid rgba(0, 0, 0, 0.8);
+  border-right: 30px solid transparent;
+  content: "";
+  left: 100%;
+  top: 0;
+  position: absolute;
 }
 nav {
   float: right;
 }
 nav ul {
   position: absolute;
-  right: 10px;
+  right: 20px;
 }
 nav ul.searchBar {
   top: 5px;
   display: table-cell;
   vertical-align: middle;
+  display: none;
 }
 nav ul.searchBar li {
   display: table-cell;
@@ -2111,7 +2109,8 @@ nav ul.searchBar li.search .wrap a.btnSearch:hover {
   opacity: 1;
 }
 nav ul.main {
-  bottom: 10px;
+  top: 50%;
+  margin-top: -0.5em;
 }
 nav ul li {
   display: inline-block;
@@ -2264,7 +2263,7 @@ button {
   transition: all .35s ease;
   vertical-align: middle;
   line-height: 1.025;
-  font-family: 'museo_sans500', Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -3461,7 +3460,7 @@ textarea {
 }
 /* List items n tables */
 /* Animation Properties */
-.animated {
+.animated .anim {
   -webkit-animation-duration: 1s;
   -moz-animation-duration: 1s;
   -o-animation-duration: 1s;
@@ -3520,7 +3519,7 @@ textarea {
 @-webkit-keyframes fadeInBottom {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(-20px);
+    -webkit-transform: translateX(-40px);
   }
   100% {
     opacity: 1;
@@ -3530,7 +3529,7 @@ textarea {
 @-moz-keyframes fadeInBottom {
   0% {
     opacity: 0;
-    -moz-transform: translateX(-20px);
+    -moz-transform: translateX(-40px);
   }
   100% {
     opacity: 1;
@@ -3540,7 +3539,7 @@ textarea {
 @-o-keyframes fadeInBottom {
   0% {
     opacity: 0;
-    -o-transform: translateX(-20px);
+    -o-transform: translateX(-40px);
   }
   100% {
     opacity: 1;
@@ -3550,14 +3549,14 @@ textarea {
 @keyframes fadeInBottom {
   0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(40px);
   }
   100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
-.animated.fadeInBottom {
+.animated.fadeInBottom .anim {
   -webkit-animation-name: fadeInBottom;
   -moz-animation-name: fadeInBottom;
   -o-animation-name: fadeInBottom;
@@ -3594,7 +3593,7 @@ textarea {
 .banner .owl-dots {
   position: absolute;
   right: 10px;
-  top: 9px;
+  bottom: 9px;
 }
 .banner .owl-dots .owl-dot span {
   background: #ffffff;
@@ -3686,7 +3685,7 @@ textarea {
   line-height: normal;
   text-align: left;
   opacity: 0;
-  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
   font-size: 1.25em;
@@ -3717,10 +3716,10 @@ textarea {
 .buySell h2 + p {
   margin-bottom: 1em;
   font-size: .9em;
-  opacity: .75;
+  opacity: .65;
 }
 .buySell .block {
-  padding: 20px;
+  padding: 30px;
 }
 .buySell .memLogin {
   background-color: #f5ae32;
@@ -3728,8 +3727,8 @@ textarea {
   position: absolute;
   right: 0;
   left: 0;
-  padding: 20px;
-  padding-bottom: 10px;
+  padding: 30px;
+  padding-bottom: 0;
 }
 .buySell .memLogin h2 {
   margin-bottom: .5em;

@@ -91,76 +91,154 @@ $('.cusSelect select').each(function () {
 });
 
 // For Popup ////////////////
-	var $win = $(window), defPad;
-	function popup_pos(panel, mask){
-		if($(panel).hasClass('smFloat') && $win.width() < 768){
-			$(panel).find('.popWrapper').css('height', $(panel).height());
-		}else{
-			$(panel).find('.popWrapper').css('height','');
-			defPad = ($win.width() < 768 || $win.height() < 768) ? 20 : 100;
-			$(panel).css('max-height', $win.height() - defPad)
-			.find('.popWrapper').css('height', $(panel).height());
-		}
-		if($('#'+mask).length){return};
-		$('body').append('<div id='+mask+'></div>');
-		$('#'+mask).fadeIn(300, function(){
-			if($(panel).hasClass('smFloat') && $win.width() < 768){
-				$(panel).addClass('active')	
-			}else{
-				//alert('1');
-				$(panel).fadeIn(1300, function(){
-					$(panel).find('.popWrapper').css('overflow-y','');
-					popup_pos(panel, mask);
-				}).find('.popWrapper').css('overflow-y','hidden');			
-			}
-		});
-		$('body').css('overflow-y', 'hidden');
-	}
-	function remove_mask(mask, contentBox){
-		$(contentBox).removeClass('active');
-		$(mask +','+ contentBox).fadeOut(300 , function() {
-			$(mask).remove();
-			$('body').css('overflow-y', 'auto');
-			$(contentBox).removeAttr('style');
-			if($(contentBox).find('.popWrapper').length){
-				$(contentBox).find('.popWrapper').removeAttr('style');
-			}
-	    });
-	}
-	
-	$(window).on('resize', function() {
-		if($('.popup-box').length && $('.popup-box:visible').length && ($('.popup-box').hasClass('active') || $('.popup-box').hasClass('default'))){
-			popup_pos($('.popup-box:visible'), 'mask');
-		}
-	});
-	
-	(function escape_bg(mask, contentBox){
-		$(document.body).keyup(function(e) {
-			if(e.keyCode == 27  && $('.popup-box:visible').length){
-				$('a.close').trigger('click'); 
-			}
-			//return false;
-		})
-	})('#mask', '.popup-box')
-	
-	$('body').on('click', '.popup', function(e){	
+var $win = $(window), defPad;
+function popup_pos(panel, mask){
+	if($(panel).hasClass('smFloat') && $win.width() < 768){
+		$(panel).find('.popWrapper').css('height', $(panel).height());
+	}else{
+		$(panel).find('.popWrapper').css('height','');
 		defPad = ($win.width() < 768 || $win.height() < 768) ? 20 : 100;
-		popup_pos($(this).attr('data-href'), 'mask');
-		e.preventDefault();
-		return false;
-	});	
-	
-	$('a.close').on('click', function() { 
-	  remove_mask('#mask', '.popup-box:visible');
-	  return false;
-	});	
-	
-	$('body').on('click', '#mask', function() { 
-	  	$('a.close').trigger('click');
+		$(panel).css('max-height', $win.height() - defPad)
+		.find('.popWrapper').css('height', $(panel).height());
+	}
+	if($('#'+mask).length){return};
+	$('body').append('<div id='+mask+'></div>');
+	$('#'+mask).fadeIn(300, function(){
+		if($(panel).hasClass('smFloat') && $win.width() < 768){
+			$(panel).addClass('active')	
+		}else{
+			//alert('1');
+			$(panel).fadeIn(1300, function(){
+				$(panel).find('.popWrapper').css('overflow-y','');
+				popup_pos(panel, mask);
+			}).find('.popWrapper').css('overflow-y','hidden');			
+		}
 	});
-	$('.popup-box').on('click', 'input[value=Cancel], .typeClose', function(){
-		$('a.close').trigger('click');
-	})	
+	$('body').css('overflow-y', 'hidden');
+}
+function remove_mask(mask, contentBox){
+	$(contentBox).removeClass('active');
+	$(mask +','+ contentBox).fadeOut(300 , function() {
+		$(mask).remove();
+		$('body').css('overflow-y', 'auto');
+		$(contentBox).removeAttr('style');
+		if($(contentBox).find('.popWrapper').length){
+			$(contentBox).find('.popWrapper').removeAttr('style');
+		}
+	});
+}
+
+$(window).on('resize', function() {
+	if($('.popup-box').length && $('.popup-box:visible').length && ($('.popup-box').hasClass('active') || $('.popup-box').hasClass('default'))){
+		popup_pos($('.popup-box:visible'), 'mask');
+	}
+});
+
+(function escape_bg(mask, contentBox){
+	$(document.body).keyup(function(e) {
+		if(e.keyCode == 27  && $('.popup-box:visible').length){
+			$('a.close').trigger('click'); 
+		}
+		//return false;
+	})
+})('#mask', '.popup-box')
+
+$('body').on('click', '.popup', function(e){	
+	defPad = ($win.width() < 768 || $win.height() < 768) ? 20 : 100;
+	popup_pos($(this).attr('data-href'), 'mask');
+	e.preventDefault();
+	return false;
+});	
+
+$('a.close').on('click', function() { 
+  remove_mask('#mask', '.popup-box:visible');
+  return false;
+});	
+
+$('body').on('click', '#mask', function() { 
+	$('a.close').trigger('click');
+});
+$('.popup-box').on('click', 'input[value=Cancel], .typeClose', function(){
+	$('a.close').trigger('click');
+})	
+
+//(function($){
+	$.fn.viewportChecker = function(useroptions){
+	// Define options and extend with user
+	var options = {
+			classToAdd: 'visible',
+			offset: 100,
+			currIndex: 0,
+			callbackFunction: function(elem){}
+		};
+	$.extend(options, useroptions);
+	
+	// Cache the given element and height of the browser
+	var $elem = this,
+		windowHeight = $(window).height();
+	
+		this.checkElements = function(){
+			// Set some vars to check with
+			var scrollElem = ((navigator.userAgent.toLowerCase().indexOf('webkit') != -1) ? 'body' : 'html'),
+				viewportTop = $(scrollElem).scrollTop(),
+				viewportBottom = (viewportTop + windowHeight);
+		
+			$elem.each(function(index){
+				
+				var $obj = $(this);
+				// If class already exists; quit
+				if ($obj.hasClass(options.classToAdd)){
+					
+					return;
+				}
+				
+				// define the top position of the element and include the offset which makes is appear earlier or later
+				var elemTop = Math.round( $obj.offset().top ) + options.offset,
+					elemBottom = elemTop + ($obj.height());
+		
+				// Add class if in viewport
+				if ((elemTop < viewportBottom) && (elemBottom > viewportTop)){
+					$obj.addClass(options.classToAdd);
+					currIndex = index;
+					// Do the callback function. Callback wil send the jQuery object as parameter
+					options.callbackFunction($obj);
+				}
+			});
+		};
+
+	// Run checkelements on load and scroll
+		$(window).scroll(this.checkElements);
+		this.checkElements();
+	
+	// On resize change the height var
+		$(window).resize(function(e){
+			windowHeight = e.currentTarget.innerHeight;
+		});
+	};
+//})(jQuery);
+
+
+var isInt = function(n) { return parseInt(n) === n };
+function runIncrement(start, end, duration, elem){
+	
+	var start = start || 0,
+	end = end || 100,
+	duration = duration || 10000,
+	framerate = 55,
+	elem = $(elem),
+	toAdd = (( end - start ) * framerate ) / duration;
+	var interval = setInterval(function() {
+		var currentValue = Number(elem.html());
+		if (currentValue >= end) {
+			clearInterval(interval);
+			currentValue = end;
+			elem.html(isInt(currentValue)?parseInt(currentValue):currentValue.toFixed(1));
+			
+			return;
+		}                                             
+		elem.html(isInt(currentValue)?parseInt(currentValue + toAdd):(currentValue + toAdd).toFixed(1));        
+	}, framerate);
+}
 
 $(document).ready(function() {
 	var $typeDoc = $('.typeDoc');
@@ -265,71 +343,28 @@ $(document).ready(function() {
 			})
 		});
 	}
+	
+	if($('section').length){
+		$('section').not('section.auction').viewportChecker({
+			classToAdd: 'animated fadeInBottom', // Class to add to the elements when they are visible
+			//offset: 10
+			callbackFunction: function(elem, action){
+				if($('section.animated .counter').length){
+					$('.counter').each(function(index, element){
+						runIncrement($(element).data('start'), $(element).data('end'), $(element).data('duration'), element);
+					});
+				}
+			}
+		}); 
+		$('section.auction .txt').viewportChecker({
+			classToAdd: 'animated fadeInBottom', // Class to add to the elements when they are visible
+			//offset: 10
+		}); 
+	}
+	
+	$('header.main').sticky();
 
 })
-
-(function($){
-	$.fn.viewportChecker = function(useroptions){
-	// Define options and extend with user
-	var options = {
-			classToAdd: 'visible',
-			offset: 100,
-			currIndex: 0,
-			callbackFunction: function(elem){}
-		};
-	$.extend(options, useroptions);
-	
-	// Cache the given element and height of the browser
-	var $elem = this,
-		windowHeight = $(window).height();
-	
-		this.checkElements = function(){
-			// Set some vars to check with
-			var scrollElem = ((navigator.userAgent.toLowerCase().indexOf('webkit') != -1) ? 'body' : 'html'),
-				viewportTop = $(scrollElem).scrollTop(),
-				viewportBottom = (viewportTop + windowHeight);
-		
-			$elem.each(function(index){
-				
-				var $obj = $(this);
-				// If class already exists; quit
-				if ($obj.hasClass(options.classToAdd)){
-					
-					return;
-				}
-				
-				// define the top position of the element and include the offset which makes is appear earlier or later
-				var elemTop = Math.round( $obj.offset().top ) + options.offset,
-					elemBottom = elemTop + ($obj.height());
-		
-				// Add class if in viewport
-				if ((elemTop < viewportBottom) && (elemBottom > viewportTop)){
-					$obj.addClass(options.classToAdd);
-					currIndex = index;
-					// Do the callback function. Callback wil send the jQuery object as parameter
-					options.callbackFunction($obj);
-				}
-			});
-		};
-
-	// Run checkelements on load and scroll
-		$(window).scroll(this.checkElements);
-		this.checkElements();
-	
-	// On resize change the height var
-		$(window).resize(function(e){
-			windowHeight = e.currentTarget.innerHeight;
-		});
-	};
-})(jQuery);
-
-if($('section.bannerBlock').length){
-	$('section').viewportChecker({
-		//classToAdd: 'animated fadeInBottom', // Class to add to the elements when they are visible
-		//offset: 10    
-	}); 
-}
-
 
 
 
