@@ -363,6 +363,36 @@ $(document).ready(function() {
 	}
 	
 	$('header.main').sticky();
+	
+	$('#btnMenu').on('click', function(){
+		var $this = $(this);
+		$this.toggleClass('active');
+		/*var $this = $(this), $search = $('#topWrapper .search');
+		$search.fadeOut(200, function(){
+			$this.parent('nav.main').addClass('z5').css('z-index',5);
+			$('body, html').css({
+				'overflow':'hidden',
+				'position':'fixed',
+				'top':0,
+				'bottom':0,
+				'left':0,
+				'right':0,
+			});
+			if($this.hasClass('active')){
+				$('body, html').css({
+					'overflow':'auto',
+					'position':'relative'
+				});
+				$this.parent('nav.main').removeClass('z5');
+				$search.delay(400).fadeIn(0, 'easeInOutQuad', function(){
+					$this.parent('nav.main').css('z-index',3);
+				})
+				
+			}
+			$this.toggleClass('active');
+		})*/
+	})
+	
 
 })
 
