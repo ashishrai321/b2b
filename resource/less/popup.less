@@ -1,0 +1,114 @@
+/* for Popup window Panel */
+#mask {
+	display: none;
+	background-color: rgba(0,0,0,.9);
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+	z-index: 999;
+}
+.popup-box {
+	height:auto;
+	width:880px;
+	display:none;
+	background: #fff;
+	font-size: 1em;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate3d(-50%, -50%, 0);
+	z-index: 99999;
+	overflow:auto;
+	overflow-x:hidden;
+	-webkit-overflow-scrolling: touch;
+	color:@black;
+	padding:@defPad * 5; 
+	//@hoverEffect();
+	.popWrapper {
+		overflow:auto;
+		overflow-x: hidden;
+		-webkit-overflow-scrolling:touch;
+		height:inherit;
+		background:inherit;
+	}
+	a.close {
+		position:absolute;
+		width:30px;
+		height:30px;
+		display:block;
+		right:5px;
+		top:5px;
+		z-index:3;
+		background-image:none;
+		@hoverEffect();
+		&:before, &:after {
+			width:inherit;
+			height:2px;
+			position:absolute;
+			background-color:@black;
+			content:"";
+			top:50%;
+			right:0;
+			//box-shadow: 0 0 1px 1px rgba(255,255,255,.75);
+			
+		}
+		&:before {
+			-webkit-transform: rotate(45deg);
+			transform: rotate(45deg);
+		}
+		&:after {
+			-webkit-transform: rotate(-45deg);
+			transform: rotate(-45deg);
+		}
+		&:hover {
+			opacity:.7;
+		}
+	}
+	label {
+		.black(color, .6);
+		display:block;
+		font-size:.9em;
+		//padding-bottom:5px;
+	}
+	.cusCheck {
+		label {
+			color:inherit;
+		}
+	}
+}
+
+@media (max-width:@xxlg) {
+	.popup-box {
+		width:780px; 
+	}
+}
+@media (max-width:@xlg) {
+	.popup-box {
+		width:680px;
+	}
+}
+@media (max-width:@sm) {
+	.popup-box {
+		width:340px;
+		padding:50px 10px 10px;
+	}
+}
+@media (max-width:@xsm) { 
+	.popup-box {
+		width:310px;
+	}
+}
+
+
+
+
+
+	
+	
+	
+	
+	

@@ -1,0 +1,76 @@
+nav {
+	float:right;
+	ul {
+		position:absolute;
+		right:20px;
+		&.searchBar {
+			top:5px;
+			display: table-cell;
+			vertical-align: middle;
+			display:none;
+			li {
+				display: table-cell;
+				vertical-align: middle;
+				padding: 0 1em;
+				position: relative;
+				&:before {
+					background-color: #a9a9a9;
+					content: "";
+					display: block;
+					height: 50%;
+					position: absolute;
+					right: 1px;
+					top: 25%;
+					width: 2px;
+					min-height: 1em;
+				}
+				&:last-child {
+					padding-right: 0;
+					&:before {
+						display: none;
+					}
+				}
+				&.call {
+					background: url("../images/icon/icon-call.png") left center no-repeat;
+				}
+				&.search {
+					display:none;
+					.wrap {
+						width: 12em;
+						input {
+							padding-top: 5px;
+							padding-bottom: 5px;
+							border: none;
+							width: 100%;
+						}
+						a.btnSearch {
+							background: url("../images/icon/icon-search.png") center center no-repeat;
+							background-size:20px ;
+							display: block;
+							height: 100%;
+							position: absolute;
+							right: 0;
+							top: 0;
+							width: 2.5em;
+							z-index: 2;
+							cursor: pointer;
+							opacity: .6;
+							&:hover {
+								opacity: 1;
+							}
+						}
+					}
+				}
+			}
+		}
+		&.main {
+			top:50%;
+			margin-top:-.5em;
+		}
+		li {
+			display:inline-block;
+			margin-left:2em;
+		}
+	}
+}
+

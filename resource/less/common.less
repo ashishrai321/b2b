@@ -1,0 +1,144 @@
+// Common Variables Declarations - Project Based
+
+@baseColor1:rgb(245,174,50); // Primary color
+@baseColor2:rgb(253,36,20); // Red
+
+@baseFontColor:rgb(19,19,19); // Default font color
+
+@white:rgb(255,255,255); // White
+@black:rgb(0,0,0); // Black
+
+@lGrey:rgb(238,238,238);
+@grey:rgb(128,128,128);
+@dGrey:rgb(51,51,51);
+
+@error:@baseColor2;
+@info:@baseColor1;
+
+@imgPathProfile:"../images/profile/"; 
+@imgPathBanner:"../images/banner/";
+@imgPathIcon:"../images/icon/";
+
+@fontSize:15px;
+@defPad:10px;
+
+@xxxlg:1800px;
+@xxlg:1600px;
+@xlg:1400px;
+@lg:1200px;
+@md:992px;
+@sm:767px;
+@xsm:359px;
+
+@columns: {position: relative;	min-height: 1px; padding-right: @defPad; padding-left: @defPad;};
+@hoverEffect: {-webkit-transition:all .25s; transition:all .25s};
+@hoverEffect2: {-webkit-transition:all .5s; transition:all .5s};
+
+// Functions
+.baseColor1(@prop:background, @a){
+	@{prop}:rgba(245,174,50,@a)
+}
+.baseColor2(@prop:background, @a){
+	@{prop}:rgba(253,36,20,@a)
+}
+.white(@prop:background, @a){
+	@{prop}:rgba(255,255,255,@a)
+}
+.black(@prop:background, @a){
+	@{prop}:rgba(0,0,0,@a)
+}
+* {
+	box-sizing:border-box;
+	outline:none;
+}
+html {
+	font-size:@fontSize;
+	height:100%;
+	overflow-x:hidden;
+	@media (max-width: 1400px) {
+		font-size:@fontSize - 2;
+	}
+}
+body:extend(.ff_R) {
+	line-height:1.5;
+	font-size:inherit;
+	color:@baseFontColor;
+	height:100%;
+	margin:0 auto;
+	position:relative;
+	@hoverEffect();
+}
+h1, h2, h3, h4, h5, h6 {
+	&.cap {
+		.cap;
+	}
+	&.white {
+		.cWhite;
+	}
+}
+h1, .h1 {
+	font-size:4em;
+	margin-left:-0.07em;
+}
+h2, .h2 {
+	font-size:2em;
+}
+h3, .h3 {
+	font-size:2em;
+	margin-bottom:.5em;
+}
+h4, .h4 {
+	font-size:1.5em;
+}
+h5, .h5 {
+	font-size:1.25em;
+}
+h6, .h6 {
+	font-size:1em;
+}
+// Common Ruleset - Start
+.row {
+	width:auto;
+}
+.row- {
+	margin-left:-@defPad;
+	margin-right:-@defPad;
+	&:extend(.row all);
+}
+.clearfix {
+	clear: both;
+	&:before, &:after {
+		clear: both;
+		content: " ";
+		display: table;
+	}
+}
+main, header, footer, .container, .wrapper, .row, .row- {
+    &:extend(.clearfix all);
+}
+.container {
+	padding-right: @defPad;
+	padding-left: @defPad;
+	margin-right: auto;
+	margin-left: auto;
+	position: relative;
+	width: auto;
+	max-width: 1600px;
+}
+.page {
+	padding-top:50px;
+	position:relative;
+	&:before {
+		height:30px;
+		top:0;
+		left:0;
+		right:0;
+		background-color:@lGrey;
+		position:absolute;
+		display: block;
+	}
+}
+
+
+
+

@@ -2002,6 +2002,20 @@ footer:after,
   margin-left: auto;
   position: relative;
   width: auto;
+  max-width: 1600px;
+}
+.page {
+  padding-top: 50px;
+  position: relative;
+}
+.page:before {
+  height: 30px;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #eeeeee;
+  position: absolute;
+  display: block;
 }
 header {
   color: #ffffff;
@@ -2209,7 +2223,7 @@ dl dt {
   font-size: 1.1em;
   line-height: 1.1em;
   padding: 15px 35px 15px 0;
-  border-bottom: 1px solid #cccccc;
+  border-bottom: 1px solid #eeeeee;
   position: relative;
   transition: all 400ms;
   font-weight: bold;
@@ -2238,7 +2252,7 @@ dl dt.active:after {
 }
 dl dd {
   margin: 0;
-  border-bottom: 1px solid #cccccc;
+  border-bottom: 1px solid #eeeeee;
   overflow: hidden;
   display: none;
   opacity: .9;
@@ -2363,6 +2377,7 @@ textarea {
   font-size: inherit;
   color: #f5ae32;
   width: 100%;
+  height: 32px;
 }
 select {
   background: none;
@@ -2387,11 +2402,11 @@ select[multiple="multiple"] option {
     padding: 11px 10px;
   }
 }
+.form fieldset {
+  margin-bottom: 20px;
+}
 .form fieldset label {
   display: block;
-  top: 20px;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
 }
 .form fieldset label.mand:after {
   content: "*";
@@ -2446,6 +2461,7 @@ select[multiple="multiple"] option {
 textarea {
   min-height: 5em;
   max-height: 5em;
+  height: auto;
   resize: none;
   font-size: inherit;
   font-family: inherit;
@@ -3339,6 +3355,9 @@ textarea {
 .cWhite {
   color: #ffffff;
 }
+.cInfo {
+  color: #f5ae32;
+}
 .f14 {
   font-size: 14px;
 }
@@ -3426,6 +3445,9 @@ textarea {
 }
 .bgGrey {
   background: #808080;
+}
+.bglGrey {
+  background: #eeeeee;
 }
 /* Borders */
 .borBot1px {
@@ -3974,7 +3996,7 @@ textarea {
   left: 10%;
   right: 10%;
   bottom: 0;
-  background-color: #cccccc;
+  background-color: #eeeeee;
   position: absolute;
   height: 1px;
 }

@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html class="">
+<head>
+<meta charset="utf-8">
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>CARS - B2B</title>
+<!-- TemplateEndEditable -->
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="msapplication-tap-highlight" content="no">
+<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+<script src="../assets/js/lib.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+</head>
+<body>
+<div class="mainWrapper">
+  <header class="main">
+    <div class="container"><a href="#" class="logo"><img src="../assets/images/profile/logo.png" alt=""></a>
+      <nav>
+        <ul class="searchBar">
+          <li class="search">
+            <div class="wrap">
+              <input id="txtSearch" placeholder="Search" type="text">
+              <a href="#" onclick="Search();" class="btnSearch"></a></div>
+          </li>
+          <li class="call">91-9582380251</li>
+        </ul>
+        <ul class="main">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Buy</a></li>
+          <li><a href="#">Sell</a></li>
+          <li><a href="#">Auction</a></li>
+          <li><a href="#">Register</a></li>
+          <li><a href="#">Dealers</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+    <aside class="call">Call: 91-9582380251</aside>
+  </header>
+  <main class="page">
+  	<!-- TemplateBeginEditable name="main" --><!-- TemplateEndEditable -->
+  </main>
+  <footer class="main">
+    <div class="container contact">
+      <div id="defaultLocationMap" class="map"></div>
+      <div class="content col-sm-6 col-sm-offset-3 anim">
+        <h3>Contact Us</h3>
+        <p class="marB20">Your company profile matter will be here. Your company profile matter will be here. Your company profile matter will be here. Your company profile matter will be here. Your company profile matter will be here. Your company profile matter will be here. Your company profile matter will be here. </p>
+        <p class="call">Call us: 91-9582380251</p>
+      </div>
+    </div>
+    <div class="container copy">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Buy</a></li>
+        <li><a href="#">Sell</a></li>
+        <li><a href="#">Auction</a></li>
+        <li><a href="#">Register</a></li>
+        <li><a href="#">Dealers</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+      <div>© CARSB2BMOTORS 2011. Rights Reserved.</div>
+    </div>
+  </footer>
+</div>
+<script src="../assets/js/custom.js"></script>
+<!-- TemplateBeginEditable name="script" --><!-- TemplateEndEditable -->
+</body>
+</html>

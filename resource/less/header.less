@@ -1,0 +1,47 @@
+header {
+	color:@white;
+	position:relative;
+	.black(background-color, 1);
+	z-index:5;
+	padding:@defPad*2 0;
+	box-shadow:0 0 1px #fff;
+	height:102px;
+	.logo {
+		float:left;
+		max-width:200px;
+		img {
+			max-width:100%;
+		}
+	}
+	& > .container {
+		position:relative;
+	}
+	aside.call {
+		position:absolute;
+		top:100%;
+		left:0;
+		line-height:30px;
+		padding:0 15px;
+		background-color:rgba(0,0,0,.8);
+		&:after {
+			width:0; 
+			height:0; 
+			border-top:30px solid rgba(0,0,0,.8); 
+			border-right:30px solid transparent;
+			content:"";
+			left:100%;
+			top:0;
+			position:absolute;
+		}
+	}
+}
+@media (max-width:@lg) {
+	header {
+		
+	}
+}
+@media (max-width:@sm) {
+	header {
+		
+	}
+}

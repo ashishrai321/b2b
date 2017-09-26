@@ -1,0 +1,444 @@
+/* Extra CSS Document */
+// Generating Margins and padding
+// Padding
+
+.generate-pad(10);
+.generate-pad(@n, @i: 0, @x:@i*5) when (@i =< @n) {
+  .pad@{x}{
+    padding: (@i * 5px);
+  }
+  .generate-pad(@n, (@i + 1));
+}
+
+.generate-padT(24);
+.generate-padT(@n, @i: 1, @x:@i*5) when (@i =< @n) {
+  .padT@{x}{
+    padding-top: (@i * 5px);
+  }
+  .generate-padT(@n, (@i + 1));
+}
+
+.generate-padB(24);
+.generate-padB(@n, @i: 0, @x:@i*5) when (@i =< @n) {
+  .padB@{x}{
+    padding-bottom: (@i * 5px);
+  }
+  .generate-padB(@n, (@i + 1));
+}
+
+.generate-padL(10);
+.generate-padL(@n, @i: 0, @x:@i*5) when (@i =< @n) {
+  .padL@{x}{
+    padding-left: (@i * 5px);
+  }
+  .generate-padL(@n, (@i + 1));
+}
+
+.generate-padR(10);
+.generate-padR(@n, @i: 0, @x:@i*5) when (@i =< @n) {
+  .padR@{x}{
+    padding-right: (@i * 5px);
+  }
+  .generate-padR(@n, (@i + 1));
+}
+
+// Margin
+
+.generate-mar(10);
+.generate-mar(@n, @i: 0, @x:@i*5) when (@i =< @n) {
+  .mar@{x}{
+    margin: (@i * 5px);
+  }
+  .generate-mar(@n, (@i + 1));
+}
+
+.generate-marT(10);
+.generate-marT(@n, @i: 1, @x:@i*5) when (@i =< @n) {
+  .marT@{x}{
+    margin-top: (@i * 5px);
+  }
+  .generate-marT(@n, (@i + 1));
+}
+
+.generate-marB(10);
+.generate-marB(@n, @i: 0, @x:@i*5) when (@i =< @n) {
+  .marB@{x}{
+    margin-bottom: (@i * 5px);
+  }
+  .generate-marB(@n, (@i + 1));
+}
+
+.generate-marL(4);
+.generate-marL(@n, @i: 1, @x:@i*5) when (@i =< @n) {
+  .marL@{x}{
+    margin-left: (@i * 5px);
+  }
+  .generate-marL(@n, (@i + 1));
+}
+
+.generate-marR(8);
+.generate-marR(@n, @i: 1, @x:@i*5) when (@i =< @n) {
+  .marR@{x}{
+    margin-right: (@i * 5px);
+  }
+  .generate-marR(@n, (@i + 1));
+}
+
+.generate-padTem(4);
+.generate-padTem(@n, @i: 1, @x:@i) when (@i =< @n) {
+  .padT@{x}em{
+    padding-top: (@i * 1em);
+  }
+  .generate-padTem(@n, (@i + 1));
+}
+
+.generate-padBem(4);
+.generate-padBem(@n, @i: 0, @x:@i) when (@i =< @n) {
+  .padB@{x}em{
+    padding-bottom: (@i * 1em);
+  }
+  .generate-padBem(@n, (@i + 1));
+}
+
+// Other Margin and Padding - as required 
+.marAuto {
+	margin-left:auto;
+	margin-right:auto;
+}
+/* Float */
+.fL {
+	float:left;
+}
+.fR {
+	float:right;
+}
+.noF {
+	float:none;
+}
+/* Alignment */
+.c {
+	text-align:center;
+}
+.r {
+	text-align:right;
+}
+.l {
+	text-align:left;
+}
+.j {
+	text-align:justify;
+}
+.vMiddle {
+	vertical-align:middle;
+}
+/* Text related */
+.b {
+	font-weight:bold;
+}
+.n {
+	font-weight:normal;
+}
+.u {
+	text-decoration:underline;
+}
+.i {
+	font-style:italic;
+}
+.noI {
+	font-style:normal;
+}
+.noU {
+	text-decoration:none;
+}
+.low {
+	text-transform:lowercase
+}
+.cap {
+	text-transform:uppercase
+}
+.capF {
+	text-transform:capitalize
+}
+.noCap {
+	text-transform:none
+}
+/* Line-Height */
+.generate-lineHeight(15);
+.generate-lineHeight(@n, @i: 7, @x:@i*2) when (@i =< @n) {
+  .lH@{x}{
+    line-height: (@x + 0px);
+  }
+  .generate-lineHeight(@n, (@i + 1));
+}
+.lH1em {
+	line-height:1em;
+}
+.lH1HemH {
+	line-height:1.25em;
+}
+.lH1Hem {
+	line-height:1.5em;
+}
+.lHNormal {
+	line-height:normal;
+}
+/* Default Height */
+.hFull {
+	height:100%;
+}
+.hInherit {
+	height:inherit;
+}
+/* cursor */
+.curPointer, .popup {
+	cursor:pointer;
+}
+/* Font-color and Sizes */
+.cGrey {
+	color:@grey;
+}
+.cdGrey {
+	color:@dGrey;
+}
+.cBlack {
+	color: @black;
+}
+.cWhite {
+	color: @white;
+}
+.cInfo {
+	color:@info;
+}
+.f14 {
+	font-size:14px;
+}
+.fHUH {
+	font-size:.75em; 
+}
+.f0em90 {
+	font-size:.9em;
+}
+.f1em {
+	font-size:1em;
+}
+.f1emHH {
+	font-size:1.25em;
+}
+.f1emH {
+	font-size:1.5em;
+}
+.f1emHUH {
+	font-size:1.75em;
+}
+.f2em {
+	font-size:2em;
+}
+.f2emH {
+	font-size:2.5em;
+}
+.f3em {
+	font-size:3em;
+}
+
+/* Display */
+.block, .show {
+	display:block;
+}
+.inline {
+	display:inline;
+}
+.inlineBlock {
+	display:inline-block;
+}
+.hide {
+	display:none;
+}
+.hidden {
+	visibility:hidden;
+}
+.brHide {
+	br {
+		display:none;
+	}
+}
+/* Overflows */
+.oHidden {
+	overflow:hidden;
+}
+/* Positions */
+.pAbs {
+	position:absolute;
+}
+.pRel {
+	position:relative;
+}
+.pStatic {
+	position:static;
+}
+.pAllSides {
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+}
+.posT0 {
+	top:0;
+}
+.posR0 {
+	right:0;
+}
+
+/* Common Background */
+.bgWhite {
+	background:@white;
+}
+.bgBlack {
+	background:@black;
+}
+.bgGrey {
+	background:@grey;
+}
+.bglGrey {
+	background:@lGrey;
+}
+
+/* Borders */
+.borBot1px {
+	border-bottom:dotted 1px #ccc;
+}
+
+/* Width */
+.maxWidthAuto, .maxWidthAuto img {
+	max-width:none;
+}
+.wFull, .wFull img {
+	width:100%;
+}
+
+/* Wrap */
+.noWrap {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.pre {
+	white-space: nowrap;
+}
+
+/* Opacity */
+.op50 {
+	opacity: 0.5;
+}
+.op100 {
+	opacity: 1 !important;
+}
+
+/* List items n tables */
+
+/* Animation Properties */
+.animated .anim {
+	-webkit-animation-duration: 1s;
+	   -moz-animation-duration: 1s;
+	     -o-animation-duration: 1s;
+	        animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	   -moz-animation-fill-mode: both;
+	     -o-animation-fill-mode: both;
+	        animation-fill-mode: both;
+}
+@-webkit-keyframes fadeInLeft {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateX(-20px);
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: translateX(0);
+	}
+}
+@-moz-keyframes fadeInLeft {
+	0% {
+		opacity: 0;
+		-moz-transform: translateX(-20px);
+	}
+	100% {
+		opacity: 1;
+		-moz-transform: translateX(0);
+	}
+}
+@-o-keyframes fadeInLeft {
+	0% {
+		opacity: 0;
+		-o-transform: translateX(-20px);
+	}
+	100% {
+		opacity: 1;
+		-o-transform: translateX(0);
+	}
+}
+@keyframes fadeInLeft {
+	0% {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+.animated.fadeInLeft {
+	-webkit-animation-name: fadeInLeft;
+	-moz-animation-name: fadeInLeft;
+	-o-animation-name: fadeInLeft;
+	animation-name: fadeInLeft;
+}
+@-webkit-keyframes fadeInBottom {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateX(-40px);
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: translateX(0);
+	}
+}
+@-moz-keyframes fadeInBottom {
+	0% {
+		opacity: 0;
+		-moz-transform: translateX(-40px);
+	}
+	100% {
+		opacity: 1;
+		-moz-transform: translateX(0);
+	}
+}
+@-o-keyframes fadeInBottom {
+	0% {
+		opacity: 0;
+		-o-transform: translateX(-40px);
+	}
+	100% {
+		opacity: 1;
+		-o-transform: translateX(0);
+	}
+}
+@keyframes fadeInBottom {
+	0% {
+		opacity: 0;
+		transform: translateY(40px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+.animated.fadeInBottom .anim {
+	-webkit-animation-name: fadeInBottom;
+	-moz-animation-name: fadeInBottom;
+	-o-animation-name: fadeInBottom;
+	animation-name: fadeInBottom;
+}
+
+
+

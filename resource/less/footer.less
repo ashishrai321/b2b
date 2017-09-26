@@ -1,0 +1,64 @@
+footer {
+	color:@white;
+	position:relative;
+	.black(background-color, 1);
+	//padding:@defPad 0;
+	text-align:center;
+	& > .container {
+		position:relative;
+	}
+	.contact {
+		.map {
+			position:absolute;
+			left:0;
+			top:0;
+			right:0;
+			bottom:0;
+			&:after {
+				background-color:rgba(0,0,0,.85);
+				position:absolute;
+				left:0;
+				top:0;
+				right:0;
+				bottom:0;
+				content:"";
+			}
+		}
+		.content {
+			position:relative;
+			z-index:2;
+			padding:5em 0;
+		}
+	}
+	.copy {
+		padding:3em 0;
+		ul {
+			margin-bottom:1em;
+			li {
+				display:inline-block;
+				&:after {
+					content:"|";
+					position:relative;
+					padding:0 10px;
+					display:inline-block;
+					right:-2px;
+				}
+				&:last-child {
+					&:after {
+						display:none;
+					}
+				}
+			}
+		}
+	}
+}
+@media (max-width:@lg) {
+	footer {
+		
+	}
+}
+@media (max-width:@sm) {
+	footer {
+		
+	}
+}

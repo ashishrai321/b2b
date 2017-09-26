@@ -1,0 +1,213 @@
+/* Generating Columns */
+.col {
+	display:block;
+	float:left
+}
+.defPad {
+	padding:0 @defPad;
+}
+.defCol {
+	@columns();
+}
+
+.generate-columns-gen(12);
+.generate-columns-gen(@n, @i: 1) when (@i =< @n) {
+  .col-xs-@{i}, .col-sm-@{i}, .col-md-@{i}, .col-lg-@{i}{
+    &:extend(.defCol);
+  }
+  .generate-columns-gen(@n, (@i + 1));
+}
+
+.xs_floatL {
+	float:left; 
+}
+	
+.generate-columns(12);
+.generate-columns(@n, @i: 0) when (@i =< @n) {
+  .col-xs-@{i} {
+    width: (@i * 100% / @n);
+  }
+  
+  .col-xs-@{i}{
+	&:extend(.xs_floatL);
+  }
+  .col-xs-pull-@{i}{
+	right:(@i * 100% / @n);
+  }
+  .col-xs-push-@{i}{
+	left:(@i * 100% / @n);
+  }
+  .col-xs-offset-@{i}{
+    margin-left: (@i * 100% / @n);
+  }
+  
+  .generate-columns(@n, (@i + 1));
+}
+
+@media (min-width: 768px) {
+	.sm_floatL {
+		float:left;
+	}
+	.generate-columns(12);
+	.generate-columns(@n, @i: 0) when (@i =< @n) {
+	  .col-sm-@{i}{
+		width: (@i * 100% / @n);
+	  }
+	  
+	  .col-sm-@{i}{
+		&:extend(.sm_floatL);
+	  }
+	  .col-sm-pull-@{i}{
+		right:(@i * 100% / @n);
+	  }
+	  .col-sm-push-@{i}{
+		left:(@i * 100% / @n);
+	  }
+	  .col-sm-offset-@{i}{
+		margin-left: (@i * 100% / @n);
+	  }
+	  
+	  .generate-columns(@n, (@i + 1));
+	}
+}
+
+@media (min-width: 992px) {
+	.md_floatL {
+		float:left;
+	}
+	.generate-columns(12);
+	.generate-columns(@n, @i: 0) when (@i =< @n) {
+	  .col-md-@{i}{
+		width: (@i * 100% / @n);
+	  }
+	  
+	  .col-md-@{i}{
+		&:extend(.md_floatL);
+	  }
+	  .col-md-pull-@{i}{
+		right:(@i * 100% / @n);
+	  }
+	  .col-md-push-@{i}{
+		left:(@i * 100% / @n);
+	  }
+	  .col-md-offset-@{i}{
+		margin-left: (@i * 100% / @n);
+	  }
+	  
+	  .generate-columns(@n, (@i + 1));
+	}
+}
+
+@media (min-width: 1200px) {
+	.lg_floatL {
+		float:left;
+	}
+	.generate-columns(12);
+	.generate-columns(@n, @i: 0) when (@i =< @n) {
+	  .col-lg-@{i}{
+		width: (@i * 100% / @n);
+	  }
+	  
+	  .col-lg-@{i}{
+		&:extend(.lg_floatL);
+	  }
+	  .col-lg-pull-@{i}{
+		right:(@i * 100% / @n);
+	  }
+	  .col-lg-push-@{i}{
+		left:(@i * 100% / @n);
+	  }
+	  .col-lg-offset-@{i}{
+		margin-left: (@i * 100% / @n);
+	  }
+	  
+	  .generate-columns(@n, (@i + 1));
+	}
+}
+
+@media (min-width: 1400px) {
+	.xlg_floatL {
+		float:left;
+	}
+	.generate-columns(12);
+	.generate-columns(@n, @i: 0) when (@i =< @n) {
+	  .col-xlg-@{i}{
+		width: (@i * 100% / @n);
+	  }
+	  
+	  .col-xlg-@{i}{
+		&:extend(.xlg_floatL);
+	  }
+	  .col-xlg-pull-@{i}{
+		right:(@i * 100% / @n);
+	  }
+	  .col-xlg-push-@{i}{
+		left:(@i * 100% / @n);
+	  }
+	  .col-xlg-offset-@{i}{
+		margin-left: (@i * 100% / @n);
+	  }
+	  
+	  .generate-columns(@n, (@i + 1));
+	}
+}
+@media (min-width: 1600px) {
+	.xxlg_floatL {
+		float:left;
+	}
+	.generate-columns(12);
+	.generate-columns(@n, @i: 0) when (@i =< @n) {
+	  .col-xxlg-@{i}{
+		width: (@i * 100% / @n);
+	  }
+	  
+	  .col-xxlg-@{i}{
+		&:extend(.xlg_floatL);
+	  }
+	  .col-xxlg-pull-@{i}{
+		right:(@i * 100% / @n);
+	  }
+	  .col-xxlg-push-@{i}{
+		left:(@i * 100% / @n);
+	  }
+	  .col-xxlg-offset-@{i}{
+		margin-left: (@i * 100% / @n);
+	  }
+	  
+	  .generate-columns(@n, (@i + 1));
+	}
+}
+@media (min-width: 1800px) {
+	.xxxlg_floatL {
+		float:left;
+	}
+	.generate-columns(12);
+	.generate-columns(@n, @i: 0) when (@i =< @n) {
+	  .col-xxxlg-@{i}{
+		width: (@i * 100% / @n);
+	  }
+	  
+	  .col-xxxlg-@{i}{
+		&:extend(.xlg_floatL);
+	  }
+	  .col-xxxlg-pull-@{i}{
+		right:(@i * 100% / @n);
+	  }
+	  .col-xxxlg-push-@{i}{
+		left:(@i * 100% / @n);
+	  }
+	  .col-xxxlg-offset-@{i}{
+		margin-left: (@i * 100% / @n);
+	  }
+	  
+	  .generate-columns(@n, (@i + 1));
+	}
+}
+
+.generate-column(20);
+.generate-column(@n, @i: 1, @x:@i*5) when (@i =< @n) {
+  .w@{x}, .w@{x}P:extend(.defPad){
+    width: (@i * 100% / @n);
+  }
+  .generate-column(@n, (@i + 1));
+}
